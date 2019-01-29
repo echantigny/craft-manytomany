@@ -130,14 +130,14 @@ class ManyToManyField extends Field
         // For this iteration of the plugin, everything is a SECTION, but it's setup so it can be
         // refactored in the future to allow for multiple types
 
-        if (!is_object($element) || $element->refHandle() != 'entry') {
-            return Craft::t('manytomany',
-                'For this version of the {pluginName} plugin, you can only use this field with Entries.',
-                ['pluginName' => $plugin->name]);
-        }
+        //if (!is_object($element) || $element->refHandle() != 'entry') {
+        //  return Craft::t('manytomany',
+        //      'For this version of the {pluginName} plugin, you can only use this field with Entries.',
+        //      ['pluginName' => $plugin->name]);
+        //}
 
         /** @var Entry $element */
-        $relatedSection = Craft::$app->sections->getSectionById($this->source['value']);
+        $relatedSection =null;// Craft::$app->sections->getSectionById($this->source['value']);
 
         // Get all the entries that this has already been attached to
         $relatedEntries = $service->getRelatedEntries($element, $relatedSection, $this->singleField);
@@ -159,7 +159,7 @@ class ManyToManyField extends Field
             'value' => $value,
             'id' => $namespacedId,
             'current' => $relatedEntries,
-            'section' => $relatedSection->id,
+            //'section' => $relatedSection->id,
             'nonSelectable' => $nonSelectable,
             'singleField' => $this->singleField,
             'nameSpace' => Craft::$app->view->getNamespace(),

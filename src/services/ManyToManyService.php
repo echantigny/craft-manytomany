@@ -3,6 +3,7 @@
 namespace Page8\ManyToMany\services;
 
 use Craft;
+use craft\commerce\elements\Product;
 use craft\db\Query;
 use craft\elements\Entry;
 use craft\models\Section;
@@ -21,11 +22,10 @@ class ManyToManyService extends Component
      *
      * @return Entry[]
      */
-    public function getRelatedEntries(ElementInterface $element, Section $section, string $field): array
+    public function getRelatedEntries(ElementInterface $element, $section, string $field): array
     {
-        $query = Entry::find();
-
-        $query->section = $section;
+        $query = Product::find();
+        //$query->section = $section;
         $query->limit = null;
         $query->status = null;
         $query->enabledForSite = null;

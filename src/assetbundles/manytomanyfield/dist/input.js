@@ -3,10 +3,10 @@ function openModal(target, selectedSection, name, nameSpace) {
     let nonSelectable = $('#' + nameSpace + '-' + name + 'nonSelectable').val();
     nonSelectable = JSON.parse("[" + nonSelectable + "]");
 
-    Craft.createElementSelectorModal('craft\\elements\\Entry', {
+    Craft.createElementSelectorModal('craft\\commerce\\elements\\Product', {
         resizable: true,
         storageKey: 'mTm' + target,
-        sources: ['section:' + selectedSection],
+
         criteria: {status: null, localeEnabled: null},
         multiSelect: true,
         disabledElementIds: nonSelectable,
