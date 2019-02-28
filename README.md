@@ -1,4 +1,4 @@
-This fork is a very very crude was of using it for Commerce Products relationships.  It ignores configurations.
+This fork is a very very crude way of using it for Commerce Products relationships.  It ignores configurations.
 
 **Use at your own risks.**
 
